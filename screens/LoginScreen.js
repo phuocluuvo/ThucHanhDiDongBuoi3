@@ -1,113 +1,55 @@
-import React from "react";
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import React, { useLayoutEffect } from "react";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 
 const LoginScreen = () => {
+  const nav = useNavigation();
+  useLayoutEffect(() => {
+    nav.setOptions({
+      headerShown: false,
+    });
+  }, []);
   return (
-    <View
-      style={{
-        height: "100%",
-        width: "100%",
-        padding: 20,
-        paddingVertical: "30px",
-        background:
-          "linear-gradient(180deg, rgba(196, 196, 196, 0) 0%, #28F7AC 100%)",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
+    <SafeAreaView
+      className="h-full w-full p-10 py-[30px] 
+      items-center justify-between
+      "
     >
-      <View
-        style={{
-          width: 150,
-          height: 150,
-          border: "10px solid black",
-          borderRadius: 100,
-        }}
-      />
-      <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 30,
-          textAlign: "center",
-        }}
-      >
-        GROW <br />
-        YOUR BUSSINESS
+      <View className="w-[150px] h-[150px] border-[20px] border-black rounded-[100px] " />
+      <Text className="text-center font-bold text-3xl">
+        GROW YOUR BUSSINESS
       </Text>
-      <Text
-        style={{
-          textAlign: "center",
-          fontWeight: 700,
-          fontSize: "15px",
-        }}
-      >
+      <Text className="text-center font-bold text-xl">
         We will have you to grown bussiness using online server
       </Text>
-      <View
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-
-          flex: 0.5,
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flex: 0.5,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              backgroundColor: "#E3C000",
-              padding: 10,
-              width: "150px",
-              marginRight: 20,
-              textAlign: "center",
-            }}
-          >
+      <View className="flex justify-between flex-[0.5]">
+        <View className="flex justify-evenly flex-[0.5] items-center flex-row w-full">
+          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
             <Text
-              style={{
-                fontSize: "25px",
-                fontWeight: "bold",
+              className="text-lg font-bold"
+              onPress={() => {
+                nav.navigate("ForgetPassword");
               }}
             >
               LOGIN
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              backgroundColor: "#E3C000",
-              padding: 10,
-              marginLeft: 20,
-              width: "150px",
-              textAlign: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: "25px",
-                fontWeight: "bold",
-              }}
-            >
-              SIGN UP
-            </Text>
+          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
+            <Text className="text-lg font-bold">SIGN UP</Text>
           </TouchableOpacity>
         </View>
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 20,
-            textAlign: "center",
-            flex: 0.5,
-          }}
-        >
+        <Text className="font-bold text-lg text-center flex-[0.5]">
           HOW WE WORK?
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
