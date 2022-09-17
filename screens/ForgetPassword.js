@@ -1,4 +1,5 @@
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import React, { useLayoutEffect } from "react";
 import {
   Image,
   SafeAreaView,
@@ -9,6 +10,12 @@ import {
 } from "react-native";
 import { EnvelopeIcon } from "react-native-heroicons/outline";
 const ForgetPassword = () => {
+  const nav = useNavigation();
+  useLayoutEffect(() => {
+    nav.setOptions({
+      headerShown: false,
+    });
+  }, []);
   return (
     <SafeAreaView className="flex-1 bg-[#BDF6C6] items-center ">
       <View className="items-center flex-[0.4] justify-evenly py-10">
@@ -28,7 +35,12 @@ const ForgetPassword = () => {
           <EnvelopeIcon color="black" size="20" fontWeight="bold" />
           <TextInput placeholder="Email" className="mx-1"></TextInput>
         </View>
-        <TouchableOpacity className="h-[45px] bg-[#E3C000] justify-center flex items-center">
+        <TouchableOpacity
+          onPress={() => {
+            nav.navigate("CodeVerification");
+          }}
+          className="h-[45px] bg-[#E3C000] justify-center flex items-center"
+        >
           <Text className=" font-bold  text-xl">NEXT</Text>
         </TouchableOpacity>
       </View>
