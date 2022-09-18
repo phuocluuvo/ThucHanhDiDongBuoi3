@@ -31,17 +31,20 @@ const WelcomeScreen = () => {
       </Text>
       <View className="flex justify-between flex-[0.5]">
         <View className="flex justify-evenly flex-[0.5] items-center flex-row w-full">
-          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
-            <Text
-              className="text-lg font-bold"
-              onPress={() => {
-                nav.navigate("LoginScreen");
-              }}
-            >
-              LOGIN
-            </Text>
+          <TouchableOpacity
+            className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center"
+            onPress={() => {
+              nav.navigate("LoginScreen");
+            }}
+          >
+            <Text className="text-lg font-bold">LOGIN</Text>
           </TouchableOpacity>
-          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
+          <TouchableOpacity
+            className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center"
+            onPress={() => {
+              nav.navigate("RegisterScreen");
+            }}
+          >
             <Text className="text-lg font-bold">SIGN UP</Text>
           </TouchableOpacity>
         </View>
