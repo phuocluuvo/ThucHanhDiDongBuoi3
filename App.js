@@ -5,15 +5,17 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import CodeVerification from "./screens/CodeVerification";
 import ForgetPassword from "./screens/ForgetPassword";
 import LoginScreen from "./screens/LoginScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <TailwindProvider>
         <Stack.Navigator>
-          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
           <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
           <Stack.Screen name="CodeVerification" component={CodeVerification} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
         </Stack.Navigator>
       </TailwindProvider>
     </NavigationContainer>

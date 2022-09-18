@@ -1,15 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
   SafeAreaView,
+  View,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  Image,
 } from "react-native";
+import { EyeIcon } from "react-native-heroicons/solid";
 
-const LoginScreen = () => {
+function LoginScreen() {
   const nav = useNavigation();
   useLayoutEffect(() => {
     nav.setOptions({
@@ -19,38 +20,47 @@ const LoginScreen = () => {
   return (
     <SafeAreaView
       className="h-full w-full p-10 py-[30px] 
-      items-center justify-between
+      items-center justify-around bg-[#31aa5230]
       "
     >
-      <View className="w-[150px] h-[150px] border-[20px] border-black rounded-[100px] " />
-      <Text className="text-center font-bold text-3xl">
-        GROW YOUR BUSSINESS
-      </Text>
-      <Text className="text-center font-bold text-xl">
-        We will have you to grown bussiness using online server
-      </Text>
-      <View className="flex justify-between flex-[0.5]">
-        <View className="flex justify-evenly flex-[0.5] items-center flex-row w-full">
-          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
-            <Text
-              className="text-lg font-bold"
-              onPress={() => {
-                nav.navigate("ForgetPassword");
-              }}
-            >
-              LOGIN
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="bg-[#E3C000] py-4 w-[100px] flex justify-center items-center">
-            <Text className="text-lg font-bold">SIGN UP</Text>
-          </TouchableOpacity>
+      <Text className="text-3xl font-bold">LOGIN</Text>
+      <View className="w-full flex-[0.1] justify-around">
+        <TextInput
+          className="p-3 bg-[#c4c4c44d] text-xl"
+          placeholder="Email"
+        ></TextInput>
+        <View className="bg-[#c4c4c44d] pr-2 flex flex-row justify-between items-center">
+          <TextInput
+            secureTextEntry={true}
+            className="p-3 text-xl "
+            placeholder="Password"
+          ></TextInput>
+          <EyeIcon color={"black"} fontSize="25px" />
         </View>
-        <Text className="font-bold text-lg text-center flex-[0.5]">
-          HOW WE WORK?
-        </Text>
+      </View>
+      <View className="justify-evenly items-center w-[450px] flex-[0.1]">
+        <TouchableOpacity className="bg-red-600 w-[330px] h-[45px] justify-center items-center">
+          <Text className="font-bold text-white text-xl ">LOGIN</Text>
+        </TouchableOpacity>
+        <Text>When you agree to terms and conditions</Text>
+        <TouchableOpacity onPress={() => nav.navigate("ForgetPassword")}>
+          <Text className="text-indigo-800">Forgot you password?</Text>
+        </TouchableOpacity>
+        <Text>or login with</Text>
+      </View>
+      <View className="flex-row w-full flex-[0.05]">
+        <TouchableOpacity className="bg-[#25479B] justify-center items-center flex-[0.333]">
+          <Image source={require("../assets/f.png")} />
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-[#0F8EE0]  flex-[0.333] h-fit  justify-center items-center">
+          <Text className="font-[900] text-[30px] text-white">Z</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="border-[#0F8EE0] border-2 flex-[0.333]  justify-center items-center">
+          <Image source={require("../assets/google.png")} />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
-};
+}
 
 export default LoginScreen;
